@@ -8,7 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class TimesTableServlet extends HttpServlet {
+	
+	private Logger logger = LoggerFactory.getLogger(TimesTableServlet.class);
+	
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -21,12 +27,17 @@ public class TimesTableServlet extends HttpServlet {
 //		localhost/jsp/timesServlet?param=6
 /*
 		String param = req.getParameter("param");
-		System.out.println("param : " + param);
+		
 */
 		
 //		localhost/jsp/timeSErvlet?param=2&6
 		String param1 = req.getParameter("gob");
+		logger.debug("param1 : {}", param1);
+		
 		String param2 = req.getParameter("dan");
+		logger.debug("param2 : {}", param2);
+		
+		
 		
 		
 		pw.write("<html>");
