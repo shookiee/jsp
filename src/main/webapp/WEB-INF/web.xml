@@ -1,50 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-	version="3.0">
-	<display-name>jsp</display-name>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-	</welcome-file-list>
-
-	<servlet>
-		<servlet-class>kr.or.ddit.servlet.BasicServlet</servlet-class> <!-- 패키지명까지 포함한 클래스명 -->
-		<servlet-name>basicServlet</servlet-name>
-	</servlet>
-
-	<!-- 어떤 url이 왔을 때 servlet을 실행할 지 -->
-	<servlet-mapping>
-		<servlet-name>basicServlet</servlet-name>
-		<url-pattern>/bs</url-pattern>
-	</servlet-mapping>
-	
-	
-	
-	<servlet>
-		<servlet-class>kr.or.ddit.servlet.NowDateServlet</servlet-class>
-		<servlet-name>nowDateServlet</servlet-name>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>nowDateServlet</servlet-name>
-		<url-pattern>/nowDate</url-pattern>
-	</servlet-mapping>
-	
-	
-	
-	<servlet>
-		<servlet-class>kr.or.ddit.servlet.TimesTableServlet</servlet-class>
-		<servlet-name>timesTableServlet</servlet-name>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>timesTableServlet</servlet-name>
-		<url-pattern>/timesServlet</url-pattern>
-	</servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>jsp</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>basicServlet</servlet-name>
+    <servlet-class>kr.or.ddit.servlet.BasicServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>basicServlet</servlet-name>
+    <url-pattern>/bs</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>nowDateServlet</servlet-name>
+    <servlet-class>kr.or.ddit.servlet.NowDateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>nowDateServlet</servlet-name>
+    <url-pattern>/nowDate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>timesTableServlet</servlet-name>
+    <servlet-class>kr.or.ddit.servlet.TimesTableServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>timesTableServlet</servlet-name>
+    <url-pattern>/timesServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginController</display-name>
+    <servlet-name>LoginController</servlet-name>
+    <servlet-class>kr.or.ddit.login.controller.LoginController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginController</servlet-name>
+    <url-pattern>/LoginController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogInController</display-name>
+    <servlet-name>LogInController</servlet-name>
+    <servlet-class>kr.or.ddit.login.controller.LoginController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogInController</servlet-name>
+    <url-pattern>/LogInController</url-pattern>
+  </servlet-mapping>
 </web-app>
