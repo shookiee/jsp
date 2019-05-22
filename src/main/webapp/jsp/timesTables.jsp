@@ -36,11 +36,16 @@
 <!-- 9*9단 출력 (2~9단) -->
 
 <span id = first>shookie's <span id = second>JSP</span> TABLE :D</span>
+
+<%  
+	String param1 = request.getParameter("i");
+	String param2 = request.getParameter("j");
+%>
 <table>
-<% for(int i = 1; i < 10; i++) {
+<% for(int j = 1; j < Integer.parseInt(param2); j++) {
 %>
 <tr>
-<%	for(int j = 2; j < 10; j++) {
+<%	for(int i = 2; i <= Integer.parseInt(param1); i++) {
 %>
 <td>
 	<%= j%> * <%= i %> = <%= j*i %>
