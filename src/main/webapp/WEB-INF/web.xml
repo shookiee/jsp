@@ -9,71 +9,62 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
- 
   <servlet>
     <servlet-name>basicServlet</servlet-name>
     <servlet-class>kr.or.ddit.servlet.BasicServlet</servlet-class>
   </servlet>
- 
   <servlet-mapping>
     <servlet-name>basicServlet</servlet-name>
     <url-pattern>/bs</url-pattern>
   </servlet-mapping>
- 
- 
   <servlet>
     <servlet-name>nowDateServlet</servlet-name>
     <servlet-class>kr.or.ddit.servlet.NowDateServlet</servlet-class>
   </servlet>
- 
   <servlet-mapping>
     <servlet-name>nowDateServlet</servlet-name>
     <url-pattern>/nowDate</url-pattern>
   </servlet-mapping>
- 
- 
   <servlet>
     <servlet-name>timesTableServlet</servlet-name>
     <servlet-class>kr.or.ddit.servlet.TimesTableServlet</servlet-class>
   </servlet>
- 
   <servlet-mapping>
     <servlet-name>timesTableServlet</servlet-name>
     <url-pattern>/timesServlet</url-pattern>
   </servlet-mapping>
- 
- 
   <servlet>
     <description></description>
     <display-name>LoginController</display-name>
     <servlet-name>LoginController</servlet-name>
     <servlet-class>kr.or.ddit.login.controller.LoginController</servlet-class>
   </servlet>
- 
   <servlet-mapping>
     <servlet-name>LoginController</servlet-name>
     <url-pattern>/LoginController</url-pattern>
   </servlet-mapping>
- 
- 
   <servlet>
     <description></description>
     <display-name>LogInController</display-name>
     <servlet-name>LogInController</servlet-name>
     <servlet-class>kr.or.ddit.login.controller.LoginController</servlet-class>
   </servlet>
- 
   <servlet-mapping>
     <servlet-name>LogInController</servlet-name>
     <url-pattern>/LogInController</url-pattern>
   </servlet-mapping>
- 
-  
-  <!-- 초기화 parameter -->
   <context-param>
-  	<param-name>ADMIN</param-name>
-  	<param-value>brown</param-value> 
+    <param-name>ADMIN</param-name>
+    <param-value>brown</param-value>
   </context-param>
-
-
+  <servlet>
+    <description></description>
+    <display-name>LoginPracticeController</display-name>
+    <servlet-name>LoginPracticeController</servlet-name>
+    <servlet-class>kr.or.ddit.login.controller.LoginPracticeController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginPracticeController</servlet-name>
+    <url-pattern>/LoginPracticeController</url-pattern>
+  </servlet-mapping>
 </web-app>

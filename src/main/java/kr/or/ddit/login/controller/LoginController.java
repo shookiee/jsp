@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import kr.or.ddit.user.model.UserVO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,7 +51,14 @@ public class LoginController extends HttpServlet {
 //		RequestDispatcher rd = request.getRequestDispatcher("/login/login.jsp");
 //		rd.forward(request, response);
 		
-		request.getRequestDispatcher("/login/login.jsp").forward(request, response);
+		// session에 사용자 정보가 있을 경우 --> main 화면으로 이동
+		HttpSession session = request.getSession();
+		
+		if(session.getAttribute("USER_INFO") != null) 
+			request.getRequestDispatcher("/main.jsp").forward(request, response);
+		// session에 사용자 정보가 없을 경우 --> 기존 로직
+		else
+			request.getRequestDispatcher("/login/login.jsp").forward(request, response);
 	}
 
 	
@@ -69,6 +79,12 @@ public class LoginController extends HttpServlet {
 		
 		// 일치하면 (로그인 성공) : main 화면으로 이동
 		if(userId.equals("brown") && password.equals("brown1234")) {
+			
+			// session에 사용자 정보를 넣는당(사용 빈도가 높기 때문에)
+			HttpSession session = request.getSession();
+			session.setAttribute("USER_INFO", new UserVO("브라운", "brown", "곰"));
+			
+			
 			RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
 			rd.forward(request, response);
 		} else {	// 불일치하면 (ID 혹은 비밀번호를 잘못 입력) : 로그인 화면으로 이동

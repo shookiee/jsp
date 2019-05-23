@@ -36,7 +36,7 @@
 											<% String[] userIds = request.getParameterValues("userId"); 
 												for(String userId : userIds) { %>
 													<%= userId %> <br>
-												<%} %>
+											<%} %>
 	request.getParameter("password") : <%= request.getParameter("password") %> 
 	</div><br><br><br>
 	

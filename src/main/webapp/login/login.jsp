@@ -26,14 +26,15 @@
      <div class="container">
 
       <form class="form-signin" action="<%=request.getContextPath() %>/login" method="post">
+<%--       <form class="form-signin" action="<%=request.getContextPath() %>/loginPractice" method="post"> --%>
         
         <h2 class="form-signin-heading">Please sign in</h2>
         
         <label for="userId" class="sr-only">USER ID</label>
-        <input type="text" id="userId" name="userId" class="form-control" placeholder="ID" required autofocus>
+        <input type="text" id="userId" name="userId" class="form-control" value="brown" placeholder="ID" required autofocus>
         
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        <input type="password" id="inputPassword" value="brown1234" name="password" class="form-control" placeholder="Password" required>
         
         <div class="checkbox">
         
