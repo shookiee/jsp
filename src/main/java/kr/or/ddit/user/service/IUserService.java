@@ -15,4 +15,16 @@ public interface IUserService {
 	* Method 설명 :
 	 */
 	List<UserVO> userList();
+	
+	
+	/**
+	* 
+	* Method : getUser
+	* 작성자 : PC23
+	* 변경이력 :
+	* @param userId
+	* @return
+	* Method 설명 : 사용자 정보 조회
+	 */
+	UserVO getUser(String userId);
 }
