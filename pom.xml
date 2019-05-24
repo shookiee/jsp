@@ -6,6 +6,17 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
+	<!-- oracle 연결 -->
+	<repositories>
+		<repository>
+			<id>oracle</id>
+			<name>ORACLE JDBC Repository</name>
+			<url>http://maven.jahia.org/maven2</url>
+		</repository>
+	</repositories>
+
+
+
 	<!-- java 1.5 -> java 1.8로 바꿔 세팅 -->
 	<build>
 		<plugins>
@@ -39,6 +50,22 @@
 			<version>1.2.3</version>
 		</dependency>
 
+
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.1</version>
+		</dependency>
+
+
+		<!-- oracle 연결 -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>12.1.0.2</version>
+			<scope>provided</scope>
+		</dependency>
 
 
 	</dependencies>
