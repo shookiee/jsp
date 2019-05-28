@@ -43,15 +43,15 @@
 			// 만약 rememberme 체크박스가 체크 되어 있는 경우
 			// 사용자 id 값을 userId 쿠키로 저장
 			// true 값을 rememberme cookie 값으로 저장
-			if($("#rememberme").is(":checked")) {
-				Cookies.set("userId", $("#userId").val(), {expires : 30});
-				Cookies.set("rememberme", "true", {expires : 30});
-			} else {
-				// 만약 rememberme 체크박스가 해제되어있는 경우
-				// userId, rememberme cookie 값을 삭제
-				Cookies.remove("userId");
-				Cookies.remove("rememberme");
-			}
+// 			if($("#rememberme").is(":checked")) {
+// 				Cookies.set("userId", $("#userId").val(), {expires : 30});
+// 				Cookies.set("rememberme", "true", {expires : 30});
+// 			} else {
+// 				// 만약 rememberme 체크박스가 해제되어있는 경우
+// 				// userId, rememberme cookie 값을 삭제
+// 				Cookies.remove("userId");
+// 				Cookies.remove("rememberme");
+// 			}
 			
 			// 로그인 요청을 서버로 전송
 			$("#frm").submit();
@@ -122,7 +122,7 @@
 
 			<div class="checkbox">
 
-				<label> <input id="rememberme" type="checkbox" value="remember-me">
+				<label> <input id="rememberme" name="rememberme" type="checkbox" value="remember-me">
 					Remember me
 				</label>
 
