@@ -23,7 +23,8 @@
 			return api;
 		};
 	}
-}(function () {
+}
+(function () {
 	function extend () {
 		var i = 0;
 		var result = {};
