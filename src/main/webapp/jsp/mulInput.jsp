@@ -15,7 +15,7 @@
 </style>
 </head>
 <body>
-	<form action="<%=request.getContextPath()%>/jsp/mulCalculation" method="post">
+	<form action="${pageContext.request.contextPath }/jsp/mulCalculation" method="post">
 		<label>param1 : </label><input type="text" name="param1"> <br>
 		<label>param2 : </label><input type="text" name="param2"> <br>
 		<button>calc</button>	

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import kr.or.ddit.paging.model.PageVO;
 import kr.or.ddit.user.model.UserVO;
 
 import org.junit.After;
@@ -92,5 +93,45 @@ public class UserDaoTest {
 	// 고려사항
 	// 몇번째 페이지 조회인지?, 페이징 몇건씩 데이터를 보여 줄 것인지 : 쿼리 실행 파라미터와 관련
 	// 정렬순서? : 로직 관련 --> 파라미터화 시킬 수 있음
+	/**
+	 * 
+	* Method : userPagingListTest
+	* 작성자 : PC23
+	* 변경이력 :
+	* Method 설명 : 사용자 페이징 리스트 조회 테스트
+	 */
+	@Test
+	public void userPagingListTest(){
+		/***Given***/
+		PageVO pageVO = new PageVO(1, 10);
 
+		/***When***/
+		List<UserVO> userList = userDao.userPagingList(pageVO);
+		
+		/***Then***/
+		assertNotNull(userList);
+		assertEquals(10, userList.size());
+
+	}
+	
+	
+	/**
+	 * 
+	* Method : usersCntTest
+	* 작성자 : PC23
+	* 변경이력 :
+	* Method 설명 : 사용자 전체 수 조회 테스트
+	 */
+	@Test
+	public void usersCntTest(){
+		/***Given***/
+		
+		/***When***/
+		int usersCnt = userDao.usersCnt();
+		
+		/***Then***/
+		assertEquals(105, usersCnt);
+	}
+	
+	
 }

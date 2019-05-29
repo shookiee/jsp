@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.ddit.paging.model.PageVO;
 import kr.or.ddit.user.model.UserVO;
 import kr.or.ddit.user.service.IUserService;
 import kr.or.ddit.user.service.UserService;
@@ -37,7 +38,8 @@ public class UserController extends HttpServlet {
 		// userList 객체를 이용하여 사용자 화면을 생성하는 jsp
 		request.getRequestDispatcher("/user/userList.jsp").forward(request,
 				response);
-
+		
+	
 	}
 
 	protected void doPost(HttpServletRequest request,
