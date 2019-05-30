@@ -1,7 +1,7 @@
 <%@page import="kr.or.ddit.user.model.UserVO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +36,7 @@
 
 <div class="blog-header">
    <h1 class="blog-title">Main</h1>
-   <p class="lead blog-description">Jsp / Spring.</p>
+   <p class="lead blog-description">Jsp / Spring</p>
 </div>
 
 <div class="row">

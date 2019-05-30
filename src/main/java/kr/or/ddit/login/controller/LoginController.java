@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.or.ddit.user.dao.UserDao;
 import kr.or.ddit.user.model.UserVO;
+import kr.or.ddit.user.service.IUserService;
+import kr.or.ddit.user.service.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,15 +43,21 @@ public class LoginController extends HttpServlet {
 			.getLogger(LoginController.class);
 	private static final long serialVersionUID = 1L;
 	
+	private IUserService service;
 	
+	@Override
+	public void init() throws ServletException {
+		service = new UserService();
+	}
 	// 사용자 로그인 화면 요청 처리
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		logger.debug("LoginController doGet()");
-		
-		
-		for(Cookie cookie : request.getCookies()){
-			logger.debug("cookie : {}, {}", cookie.getName(), cookie.getValue());
-		}
+//		logger.debug("LoginController doGet()");
+//		
+//		if(request.getCookies() != null){
+//			for(Cookie cookie : request.getCookies()){
+//				logger.debug("cookie : {}, {}", cookie.getName(), cookie.getValue());
+//			}
+//		}
 		
 		
 		
@@ -84,12 +93,13 @@ public class LoginController extends HttpServlet {
 		
 		
 		// db에서 해당 사용자의 정보 조회 (service, dao)
+		UserVO userVO = service.getUser(userId);
 		
 		// 해당 사용자 정보를 이용하여 사용자가 보낸 userId, password가 일치하는지 겁사
 		// --> userId : brown이고, password : brown1234라는 값일 때 통과, 그 이외 값을 불일치
 		
 		// 일치하면 (로그인 성공) : main 화면으로 이동
-		if(userId.equals("brown") && password.equals("brown1234")) {
+		if(userVO != null && userVO.getPass().equals(password)) {
 			// rememberme 파라미터가 존재할 경우 userId, rememberme cookie를 설정
 			// rememberme 파라미터가 존재하지 않을 경우 userId, rememberme cookie를 삭제
 			int cookieMaxAge = 0;
@@ -110,7 +120,7 @@ public class LoginController extends HttpServlet {
 			
 			// session에 사용자 정보를 넣는당(사용 빈도가 높기 때문에)
 			HttpSession session = request.getSession();
-			session.setAttribute("USER_INFO", new UserVO("브라운", "brown", "곰"));
+			session.setAttribute("USER_INFO", userVO);
 			
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");

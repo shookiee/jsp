@@ -12,9 +12,7 @@
   </select>
   <!--  특정 사용자 조회 -->
   <select id="getUser" parameterType="String" resultType="userVo">
-  	SELECT	USERID
-  		  , NAME
-  		  , ALIAS
+  	SELECT	*
   	FROM	USERS
   	WHERE 	USERID = #{userId}
   </select>
