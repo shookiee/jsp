@@ -1,6 +1,7 @@
 package kr.or.ddit.user.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,12 +31,19 @@ public class UserController extends HttpServlet {
 		
 		// 사용자 아이디로 사용자 정보를 조회
 		UserVO userVO = service.getUser(userId);
+		if (userVO.getBirth() != null) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			String birthStr = sdf.format(userVO.getBirth());
+			request.setAttribute("birthStr", birthStr);
+		}
 		
 		// 조회 결과를 request 객체에 속성으로 저장
-		request.getSession().setAttribute("USER_INFO", userVO);
+//		request.getSession().setAttribute("USER_INFO", userVO);
+		request.getSession().setAttribute("userVo", userVO);
 		
 		// 화면을 담당하는 /user/user.jsp로 forward
 		request.getRequestDispatcher("/user/user.jsp").forward(request, response);
+		
 	}
 
 

@@ -20,6 +20,12 @@
 <!-- css, js -->
 <%@include file="/common/basicLib.jsp"%>
 
+<script>
+$(document).ready(function(){
+
+	
+})
+</script>
 
 </head>
 
@@ -38,7 +44,8 @@
 					<div class="col-sm-8 blog-main">
 						<h2 class="sub-header">사용자 상세</h2>
 
-						<form class="form-horizontal" role="form">
+						<form id="frm" class="form-horizontal" role="form"
+						action="${pageContext.request.contextPath }/uerModify" method="get">
 	
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자
@@ -51,7 +58,7 @@
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 								<div class="col-sm-10">
-									<label class="control-label">${USER_INFO.userId }</label>
+									<label class="control-label">${userVo.userId }</label>
 									<!-- 							<input type="text" class="form-control" id="userId" name="userId" -->
 									<!-- 								placeholder="사용자 아이디"> -->
 								</div>
@@ -61,49 +68,49 @@
 								<label for="userNm" class="col-sm-2 control-label">사용자
 									이름</label>
 								<div class="col-sm-10">
-									<label class="control-label">${USER_INFO.name }</label>
+									<label class="control-label">${userVo.name }</label>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">별명</label>
 								<div class="col-sm-10">
-									<label class="control-label">${USER_INFO.alias }</label>
+									<label class="control-label">${userVo.alias }</label>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">주소</label>
 								<div class="col-sm-10">
-									<label class="control-label">${USER_INFO.addr1 }</label>
+									<label class="control-label">${userVo.addr1 }</label>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 								<div class="col-sm-10">
-									<label class="control-label">${USER_INFO.addr2 }</label>
+									<label class="control-label">${userVo.addr2 }</label>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">우편번호</label>
 								<div class="col-sm-10">
-									<label class="control-label">${USER_INFO.zipcd }</label>
+									<label class="control-label">${userVo.zipcd }</label>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">생일</label>
 								<div class="col-sm-10">
-									<label class="control-label">${USER_INFO.birth }</label>
+<%-- 									<label class="control-label">${requestScope.birthStr }</label> --%>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button type="submit" class="btn btn-default">사용자 수정</button>
-								</div>
+								<a href="${pageContext.request.contextPath }/userModify" id="updateBtn" class="btn btn-default pull-right" type="submit" class="btn btn-default">사용자 수정</a>
+							</div>
 							</div>
 						</form>
 

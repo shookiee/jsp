@@ -18,9 +18,8 @@ public class UserVO {
 	}
 
 	public UserVO(String name, String userId, String alias, String pass,
-			String addr1, String addr2, String zipcd, Date birth, String path,
-			String fileName) {
-		super();
+			String addr1, String addr2, String zipcd, Date birth) {
+		this(name, userId, alias);
 		this.name = name;
 		this.userId = userId;
 		this.alias = alias;
@@ -29,8 +28,13 @@ public class UserVO {
 		this.addr2 = addr2;
 		this.zipcd = zipcd;
 		this.birth = birth;
-		this.path = path;
-		this.fileName = fileName;
+
+	}
+	
+	public UserVO(String name, String UserId, String alias){
+		this.name=name;
+		this.userId = UserId;
+		this.alias=alias;
 	}
 
 	public String getName() {

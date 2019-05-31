@@ -43,7 +43,7 @@ $(document).ready(function(){
 		})
 
 		// 사용자 등록 버튼 클릭 이벤트 핸들러
-		$("#userRegBtn").on("click", function() {
+		$("#modifyBtn").on("click", function() {
 			// 유효성 체크
 
 			// 여기까지 도달하면 유효성 검사 완료(submit)
@@ -81,10 +81,10 @@ $(document).ready(function(){
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<div class="row">
 					<div class="col-sm-8 blog-main">
-						<h2 class="sub-header">사용자 등록</h2>
+						<h2 class="sub-header">사용자 정보 수정</h2>
 
 						<form id="frm" class="form-horizontal" role="form"
-							action="${pageContext.request.contextPath }/userForm" method="post">
+							action="${pageContext.request.contextPath }/userModify" method="post">
 	
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자
@@ -97,7 +97,7 @@ $(document).ready(function(){
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">아이디</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control" id="userId" name="userId" placeholder="사용자 아이디" value="${param.userId }">
+									<label>${userVo.userId }</label>
 								</div>
 								<div class="col-sm-2">
 <!-- 								<button id="dupliChkBtn" type="button" class="btn btn-default pull-right">중복체크</button> -->
@@ -107,28 +107,28 @@ $(document).ready(function(){
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">비밀번호</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="pass" name="pass" placeholder="사용자 비밀번호" value="${param.pass }">
+									<input type="password" class="form-control" id="pass" name="pass" placeholder="사용자 비밀번호" value="${userVo.pass }">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">이름</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="name" name="name" placeholder="사용자 이름" value="${param.name }">
+									<input type="text" class="form-control" id="name" name="name" placeholder="사용자 이름" value="${userVo.name }">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">별명</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="alias" name="alias" placeholder="사용자 별명" value="${param.alias }">
+									<input type="text" class="form-control" id="alias" name="alias" placeholder="사용자 별명" value="${userVo.alias }">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">우편번호</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control" id="zipcd" name="zipcd" placeholder="우편번호" readonly value="${param.zipcd }">
+									<input type="text" class="form-control" id="zipcd" name="zipcd" placeholder="우편번호" readonly value="${userVo.zipcd }">
 								</div>
 								<div class="col-sm-2">
 								<button id="btnSearch" type="button" class="btn btn-default pull-right">검색</button>
@@ -138,14 +138,14 @@ $(document).ready(function(){
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">주소</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="addr1" name="addr1" placeholder="주소" readonly value="${param.addr1 }">
+									<input type="text" class="form-control" id="addr1" name="addr1" placeholder="주소" readonly value="${userVo.addr1 }">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="addr2" name="addr2" placeholder="상세주소" value="${param.addr2 }">
+									<input type="text" class="form-control" id="addr2" name="addr2" placeholder="상세주소" value="${userVo.addr2 }">
 								</div>
 							</div>
 
@@ -153,13 +153,13 @@ $(document).ready(function(){
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">생일</label>
 								<div class="col-sm-10">
-								<input type="date" class="form-control" id="birth" name="birth" placeholder="생일" value="${param.birth }">
+								<input type="date" class="form-control" id="birth" name="birth" placeholder="생일" value="${requestScope.birthStr  }">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button id="userRegBtn" type="button" class="btn btn-default">사용자 등록</button>
+									<button id="modifyBtn" type="button" class="btn btn-default">사용자 수정</button>
 								</div>
 							</div>
 						</form>

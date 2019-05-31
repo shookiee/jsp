@@ -89,17 +89,16 @@
 							</table>
 						</div>
 
-						<a class="btn btn-default pull-right">사용자 등록</a>
+						<a href="${pageContext.request.contextPath }/userForm" class="btn btn-default pull-right">사용자 등록</a>
 						<div class="text-center">
 							<ul class="pagination">
 
-								<%
+							<%-- 	<%
 									// 내가 현재 몇번째 페이지에 있는가?
 									PageVO pageVo = (PageVO) request.getAttribute("pageVO");
 									int paginationSize = (Integer) request
 											.getAttribute("paginationSize");
-								%>
-
+								%> --%>
 
 								<c:choose>
 									<c:when test="${pageVO.page == 1 }">
@@ -107,50 +106,33 @@
 									</c:when>
 									<c:otherwise>
 										<li>
-											<a href="${pageContext.request.contextPath }/userPagingList?page=${pageVO.page -1}&pageSize=${pageVO.pageSize}">«</a></li>
+											<a href="${pageContext.request.contextPath }/userPagingList?page=${pageVO.page -1}&pageSize=${pageVO.pageSize}">«</a>
+										</li>
 									</c:otherwise>
-
 								</c:choose>
-							
-								
 								
 								<c:forEach begin="1" end="${paginationSize }" step="1" var="i">
-									<li 
-									 <c:choose>
-									 	<c:when test="i == ${pageVO.page }">
-									 		class="active"
-									 	</c:when>
-									 </c:choose>
-									>
-									
-									<c:choose>
-										<c:when test="i != ${pageVO.page }">
-											<a href="${pageContext.request.contextPath }/userPagingList?page=${i}&pageSize=${pageVO.pageSize}">${i }</a>
-										</c:when>
-									
-										<c:otherwise>
-											<span>${i }</span>
-										</c:otherwise>
-									</c:choose>
+									<li>
+									 	<c:choose>
+										 	<c:when test="${pageVO.page  == i}">
+									 			<li class="active"><span>${i }</span></li>
+									 			</c:when>
+											<c:otherwise>
+												<li><a href="${pageContext.request.contextPath }/userPagingList?page=${i}&pageSize=${pageVO.pageSize}">${i }</a></li>
+											</c:otherwise>
+										</c:choose>
+									</li>
 								</c:forEach>
-								</li>								
 								
-								
-								
-								
-								
-								<c:choose>
-									<c:when test="${pageVO.page == paginationSize }">
-										<li class="disabled"><span>»</span></li>
-									</c:when>
-
-									<c:otherwise>
-										<li><a href="${pageContext.request.contextPath }/userPagingList?page=${pageVO.page + 1}&pageSize=${pageVO.pageSize}">»</a></li>
-									</c:otherwise>								
-								</c:choose>
-								
-							
-							
+									<c:choose>
+										<c:when test="${pageVO.page == paginationSize }">
+											<li class="disabled"><span>»</span></li>
+										</c:when>
+	
+										<c:otherwise>
+											<li><a href="${pageContext.request.contextPath }/userPagingList?page=${pageVO.page + 1}&pageSize=${pageVO.pageSize}">»</a></li>
+										</c:otherwise>								
+									</c:choose>
 							</ul>
 						</div>
 					</div>

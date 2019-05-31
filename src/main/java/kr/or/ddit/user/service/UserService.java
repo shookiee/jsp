@@ -64,6 +64,22 @@ public class UserService implements IUserService {
 		return resultMap;
 	}
 
+	@Override
+	public int insertUser(UserVO userVo) {
+		return userDao.insertUser(userVo);
+	}
+
+	@Override
+	public int deleteUser(String userId) {
+		return userDao.deleteUser(userId);
+	}
+
+	@Override
+	public int updateUser(UserVO userVo) {
+		return userDao.updateUser(userVo);
+	}
+
+	
 	
 
 }

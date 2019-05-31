@@ -2,6 +2,8 @@ package kr.or.ddit.user.service;
 
 import static org.junit.Assert.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -99,5 +101,40 @@ public class UserServiceTest {
 		assertEquals(11, (int)paginationSize);
 		
 		
+	}
+	
+	@Test
+	public void insertUserTest(){
+		/*** Given ***/
+		// 사용자 정보를 담고 있는 vo 객체 준비
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		UserVO userVo = null;
+		try {
+			userVo = new UserVO("aadfdf", "shooadf3", "tes", "shookie1234",
+					"대전광역시 중구 중앙로 76", "영민빌딩 2층 204호", "34940",
+					sdf.parse("2019-05-31"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		/*** When ***/
+		int insertCnt = userService.insertUser(userVo);
+
+		/*** Then ***/
+		assertEquals(1, insertCnt);
+		userService.deleteUser(userVo.getUserId());
+	}
+	
+	
+	@Test
+	public void deleteUserTest(){
+		/***Given***/
+		String userId = "userId";
+
+		/***When***/
+		int deleteCnt = userService.deleteUser(userId);
+		
+		/***Then***/
+		assertEquals(1, deleteCnt);
 	}
 }

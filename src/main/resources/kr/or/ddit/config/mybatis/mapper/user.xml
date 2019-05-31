@@ -49,4 +49,44 @@
 		SELECT COUNT(*)
 		FROM USERS
 	</select>
+	
+	
+	<!-- 새로운 유저 등록 -->
+	<insert id="insertUser" parameterType="userVo">
+	INSERT INTO USERS
+	VALUES
+	(
+		  #{userId}
+		, #{name}
+		, #{alias}
+		, #{pass}
+		, #{addr1}
+		, #{addr2}
+		, #{zipcd}
+		, #{birth}
+		, ''
+		, ''
+	)
+	</insert>
+	
+	<!-- 유저 삭제 -->
+	<delete id="deleteUser" parameterType="string">
+	DELETE USERS
+	WHERE USERID = #{userId}
+	</delete>
+	
+	<update id="updateUser" parameterType="userVo">
+	UPDATE	USERS
+	SET		NAME = #{name}
+		  , ALIAS = #{alias}
+		  , PASS = #{pass}
+		  , ADDR1 = #{addr1}
+		  , ADDR2 = #{addr2}
+		  , ZIPCD = #{zipcd}
+		  , BIRTH = #{birth}
+		  , PATH = ''
+		  , FILENAME = ''	 
+	WHERE USERID = #{userId}
+	
+	</update>
 </mapper>
