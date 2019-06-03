@@ -64,8 +64,8 @@
 		, #{addr2}
 		, #{zipcd}
 		, #{birth}
-		, ''
-		, ''
+		, #{path, jdbcType=VARCHAR}
+		, #{fileName, jdbcType=VARCHAR}	 
 	)
 	</insert>
 	
@@ -84,8 +84,10 @@
 		  , ADDR2 = #{addr2}
 		  , ZIPCD = #{zipcd}
 		  , BIRTH = #{birth}
-		  , PATH = ''
-		  , FILENAME = ''	 
+		  <if test="path != null">
+		  , PATH = #{path, jdbcType=VARCHAR}
+		  , FILENAME = #{fileName, jdbcType=VARCHAR}
+		  </if>	 
 	WHERE USERID = #{userId}
 	
 	</update>

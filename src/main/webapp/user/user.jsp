@@ -34,8 +34,7 @@ $(document).ready(function(){
 	<!-- header -->
 	<%@include file="/common/header.jsp"%>
 
-	<div class="container-fluid">
-		<div class="row">
+	<div class="container-fluid">  
 
 			<!-- left -->
 			<%@include file="/common/left.jsp"%>

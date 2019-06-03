@@ -1,25 +1,31 @@
 package kr.or.ddit.user.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import kr.or.ddit.user.model.UserVO;
 import kr.or.ddit.user.service.IUserService;
 import kr.or.ddit.user.service.UserService;
+import kr.or.ddit.util.PartUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
 @WebServlet("/userForm")
+@MultipartConfig(maxFileSize=1024*1024*3, maxRequestSize=1024*1024*15)
 public class UserFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory
@@ -59,9 +65,12 @@ public class UserFormController extends HttpServlet {
 //		sdf.parse(source);	// 문자를 날짜로 반환
 //		sdf.format(date); 날짜를 문자열로 반환
 
+		
+		
+		
 		UserVO userVO = null;
 		try {
-			userVO = new UserVO(userId, name, alias, pass, addr1, addr2, zipcd, sdf.parse(birth));
+			userVO = new UserVO(userId, name, alias, pass, addr1, addr2, zipcd, sdf.parse(birth)/*, "", ""*/);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -71,6 +80,35 @@ public class UserFormController extends HttpServlet {
 		UserVO dbUser = userService.getUser(userId);
 		// 등록된 사용자가 아닌 경우 --> 정상 입력이 가능한 상황
 		if(dbUser == null) {
+			// profile 파일 업로드 처리
+			Part profile = request.getPart("profile");
+			//사용자가 파일을 업로드한 경우
+			if(profile.getSize() > 0) {
+				// 실제 파일명
+				String contentDisposition = profile.getHeader("content-disposition");
+				String fileName = PartUtil.getFileName(contentDisposition);
+				String ext = PartUtil.getExt(fileName);
+				
+				
+				
+//				PartUtil.checkUploadFolder(yyyy, mm);
+				
+				String uploadPath = PartUtil.getUploadPath();
+				File uploadFolder = new File(uploadPath);
+				
+				if(uploadFolder.exists()){
+					// 파일 디스크에 쓰기
+					String filePath= uploadPath + File.separator + UUID.randomUUID().toString() + ext;
+					userVO.setPath(filePath);
+					userVO.setFileName(fileName);
+					profile.write(filePath);
+					profile.delete();
+				}
+				
+				
+			
+			}
+			
 			int insertCnt = userService.insertUser(userVO);
 			// 정상 등록 된 경우
 			if(insertCnt == 1) {
