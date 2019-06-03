@@ -153,7 +153,7 @@ $(document).ready(function(){
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">생일</label>
 								<div class="col-sm-10">
-								<input type="date" class="form-control" id="birth" name="birth" placeholder="생일" value="${requestScope.birthStr  }">
+								<input type="date" class="form-control" id="birth" name="birth" placeholder="생일" value="${userVo.birthStr  }">
 								</div>
 							</div>
 

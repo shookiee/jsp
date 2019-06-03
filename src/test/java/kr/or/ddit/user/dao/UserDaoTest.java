@@ -188,4 +188,6 @@ public class UserDaoTest {
 		/***Then***/
 		assertEquals(1, updateCnt);
 	}
+	
+	
 }
