@@ -1,6 +1,7 @@
 package kr.or.ddit.encrypt.kisa.sha256;
 
 import static org.junit.Assert.*;
+import kr.or.ddit.encrypt.kisa.sha256.KISA_SHA256;
 
 import org.junit.Test;
 import org.slf4j.Logger;
