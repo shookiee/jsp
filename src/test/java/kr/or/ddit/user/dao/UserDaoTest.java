@@ -1,4 +1,3 @@
-package kr.or.ddit.user.dao;
 
 import static org.junit.Assert.*;
 

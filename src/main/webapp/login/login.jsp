@@ -22,6 +22,7 @@
 <link href="${pageContext.request.contextPath }/css/signin.css"
 	rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 <script src="${pageContext.request.contextPath }/js/js.cookie.js"></script>
 <script>
 	// $(document).ready(function(){}) 사용 대신 <script> 위치를 맨 아래로 이동 시켜도 됨

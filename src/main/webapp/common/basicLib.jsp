@@ -3,6 +3,7 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 <!-- <script src="/js/jquery/jquery-1.12.4.js"></script> -->
 <link href="${pageContext.request.contextPath }/bootstrap/css/bootstrap.css" rel="stylesheet">
 <script src="${pageContext.request.contextPath }/bootstrap/js/bootstrap.js"></script>
