@@ -16,7 +16,7 @@
 </head>
 <body>
 	<h3>Calculation Test :D</h3>
-	<form action="${pageContext.request.contextPath }/sumCalculation" method="post">
+	<form action="${cp }/sumCalculation" method="post">
 		<label>start</label> <input type="text" name="start">
 		<label>end</label> <input type="text" name="end">
 		<button>Calc</button>

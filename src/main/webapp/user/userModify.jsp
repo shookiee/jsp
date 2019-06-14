@@ -84,7 +84,7 @@ $(document).ready(function(){
 						<h2 class="sub-header">사용자 정보 수정</h2>
 
 						<form id="frm" class="form-horizontal" role="form"
-							action="${pageContext.request.contextPath }/userModify" method="post" enctype="multipart/form-data">
+							action="${cp }/userModify" method="post" enctype="multipart/form-data">
 	
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자

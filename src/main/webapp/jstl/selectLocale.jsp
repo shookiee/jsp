@@ -28,7 +28,7 @@ $(document).ready(function(){
 
 <h2>select locale</h2>
 
-<form id="frm" action="${pageContext.request.contextPath }/selectLocale" method="post" >
+<form id="frm" action="${cp }/selectLocale" method="post" >
 	<select id="selctedLang">
 			<option value="ko">한국어</option>
 			<option value="en">english</option>

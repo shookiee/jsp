@@ -5,8 +5,8 @@
 <div class="col-sm-3 col-md-2 sidebar">
    <ul class="nav nav-sidebar">
       <li class="active"><a href="#">Main<span class="sr-only">(current)</span></a></li>
-      <li class="active"><a href="${pageContext.request.contextPath }/userList">사용자리스트</a></li>
-      <li class="active"><a href="${pageContext.request.contextPath }/userPagingList">유저페이징리스트</a>
-      <li class="active"><a href="${pageContext.request.contextPath }/lprodPagingList">lprod페이징리스트</a>
+      <li class="active"><a href="${cp }/userList">사용자리스트</a></li>
+      <li class="active"><a href="${cp }/userPagingList">유저페이징리스트</a>
+      <li class="active"><a href="${cp }/lprodPagingList">lprod페이징리스트</a>
    </ul>
 </div>

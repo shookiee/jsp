@@ -72,6 +72,7 @@ public class LoginController extends HttpServlet {
 //		rd.forward(request, response);
 		
 		// session에 사용자 정보가 있을 경우 --> main 화면으로 이동
+		logger.debug("rememberme UNT_CD : {}", request.getParameter("UNT_CD"));
 		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("USER_INFO") != null) 
@@ -84,6 +85,7 @@ public class LoginController extends HttpServlet {
 	
 	// 로그인 요청 처리
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		logger.debug("rememberme UNT_CD : {}", request.getParameter("UNT_CD"));
 		logger.debug("rememberme parameter : {}", request.getParameter("rememberme"));
 		logger.debug("parameter userId : {}", request.getParameter("userId") ); // logger에서 문자열 연산을 막기위한 표현식
 		logger.debug("parameter password : {}", request.getParameter("password"));

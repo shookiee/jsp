@@ -45,13 +45,13 @@ $(document).ready(function(){
 						<h2 class="sub-header">사용자 상세</h2>
 
 						<form id="frm" class="form-horizontal" role="form"
-						action="${pageContext.request.contextPath }/uerModify" method="get">
+						action="${cp }/uerModify" method="get">
 	
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자
 									사진</label>
 								<div class="col-sm-10">
-									<img src = "${pageContext.request.contextPath }/profile?userId=${userVo.userId }"/>
+									<img src = "${cp }/profile?userId=${userVo.userId }"/>
 								</div>
 							</div>
 							
@@ -110,7 +110,7 @@ $(document).ready(function(){
 
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-								<a href="${pageContext.request.contextPath }/userModify" id="updateBtn" class="btn btn-default pull-right" type="submit" class="btn btn-default">사용자 수정</a>
+								<a href="${cp }/userModify" id="updateBtn" class="btn btn-default pull-right" type="submit" class="btn btn-default">사용자 수정</a>
 							</div>
 							</div>
 						</form>

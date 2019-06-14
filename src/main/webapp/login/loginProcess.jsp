@@ -40,7 +40,7 @@
 	request.getParameter("password") : <%= request.getParameter("password") %> 
 	</div><br><br><br>
 	
-	<img src = "${pageContext.request.contextPath }/img/jw_pikaboo.gif"><br><br><br>
+	<img src = "${cp }/img/jw_pikaboo.gif"><br><br><br>
 	
 	
 	<div>

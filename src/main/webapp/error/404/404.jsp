@@ -13,8 +13,8 @@
 <meta name="author" content="mogoolab.com" />
 <meta http-equiv="X-UA-Compatible" content="IE=8">
 <link href='http://fonts.googleapis.com/css?family=Istok+Web|Chivo|Lekton' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" media="all" href="${pageContext.request.contextPath }/error/404/js/impromptu/css.css" />
-<link rel="stylesheet" type="text/css" media="all" href="${pageContext.request.contextPath }/error/404/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="${cp }/error/404/js/impromptu/css.css" />
+<link rel="stylesheet" type="text/css" media="all" href="${cp }/error/404/style.css" />
 
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
