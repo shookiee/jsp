@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <%@include file="/common/basicLib.jsp"%>
 
+
 <script>
 $(document).ready(function(){
 	$("#selctedLang").val($("#lang").val());
