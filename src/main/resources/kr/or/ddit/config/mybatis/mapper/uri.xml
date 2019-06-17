@@ -1,0 +1,15 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="uri">
+<select id="uriList" resultType="DbVo">
+	SELECT *
+	FROM URIMAPPING
+</select>
+
+<select id="getClassName" parameterType="string" resultType="string">
+	SELECT CLASSNAME
+	FROM URIMAPPING
+	WHERE URI = #{uri}
+</select>
+</mapper>
