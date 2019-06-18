@@ -1,5 +1,6 @@
-
-import static org.junit.Assert.*;
+package kr.or.ddit.user.dao;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -47,7 +48,7 @@ public class UserDaoTest {
 	}
 
 	@After
-	// 보통 teardown이라고 명명
+	// 보통 tear down이라고 명명
 	public void teardown() {
 		logger.debug("teardown");
 	}

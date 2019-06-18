@@ -12,7 +12,7 @@
   </select>
   <!--  특정 사용자 조회 -->
   <select id="getUser" parameterType="String" resultType="userVo">
-  	SELECT	*
+  	SELECT	* 
   	FROM	USERS
   	WHERE 	USERID = #{userId}
   </select>
@@ -46,7 +46,7 @@
   
 	<!-- 사용자 전체 수 조회 -->
 	<select id="usersCnt" resultType="int">
-		SELECT COUNT(*)
+		SELECT /*+ INDEX_FFS(users PK_USERS)*/COUNT(*)
 		FROM USERS
 	</select>
 	
